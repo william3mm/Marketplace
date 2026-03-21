@@ -11,15 +11,14 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../assets/css/footer.css" />
     <link rel="stylesheet" href="../assets/css/index.css" />
+    <link rel="stylesheet" href="../assets/css/footer.css" />
   </head>
   <body>
     <header class="main-header">
       <div class="header-container">
         <a href="index.html" class="logo">AngoChina</a>
 
-        <!-- Ícones: sempre visíveis na 1ª linha -->
         <div class="nav-actions">
           <div class="exchange-tag" style="display: none" id="exchangeTag">
             <small>Câmbio Hoje</small>
@@ -34,7 +33,6 @@
           </a>
         </div>
 
-        <!-- Search: vai para a 2ª linha no mobile via order/flex-wrap -->
         <div class="search-bar">
           <input
             type="text"
@@ -47,52 +45,34 @@
     </header>
 
     <main class="store-layout">
-      <!-- SIDEBAR / CHIPS -->
       <aside class="sidebar">
         <h3>Categorias</h3>
         <nav>
           <ul class="list-unstyled category-list">
             <li>
               <a href="#" class="active"
-                ><i class="bi bi-grid-fill"></i>Todos</a
+                ><i class="bi bi-grid-fill me-2"></i>Tudo</a
               >
             </li>
             <li>
-              <a href="#"><i class="bi bi-cpu"></i>Eletrónicos</a>
+              <a href="#"><i class="bi bi-cpu me-2"></i>Eletrónicos</a>
             </li>
             <li>
-              <a href="#"><i class="bi bi-gender-female"></i>Moda & Calçado</a>
+              <a href="#"><i class="bi bi-gender-female me-2"></i>Moda</a>
             </li>
             <li>
-              <a href="#"><i class="bi bi-tools"></i>Ferramentas</a>
+              <a href="#"><i class="bi bi-tools me-2"></i>Ferramentas</a>
             </li>
             <li>
-              <a href="#"><i class="bi bi-house-door"></i>Casa & Decoração</a>
+              <a href="#"><i class="bi bi-car-front me-2"></i>Peças Auto</a>
             </li>
             <li>
-              <a href="#"><i class="bi bi-car-front"></i>Peças Auto</a>
-            </li>
-            <li>
-              <a href="#"><i class="bi bi-controller"></i>Brinquedos</a>
-            </li>
-            <li>
-              <a href="#"><i class="bi bi-phone"></i>Telemóveis</a>
-            </li>
-            <li>
-              <a href="#"
-                ><i class="bi bi-lightning-charge"></i>Energia Solar</a
-              >
+              <a href="#"><i class="bi bi-house-door me-2"></i>Casa</a>
             </li>
           </ul>
         </nav>
-        <div class="shipping-info mt-4">
-          <h4><i class="bi bi-truck me-2"></i>Logística</h4>
-          <p class="small">Parceiro Oficial:</p>
-          <strong>Speedaf Express</strong>
-        </div>
       </aside>
 
-      <!-- PRODUTOS -->
       <section class="products-section">
         <div class="section-title">
           <h2>Produtos em Destaque</h2>
@@ -102,11 +82,7 @@
         <div class="product-grid">
           <div class="product-card">
             <div class="product-img">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Smartwatch"
-                loading="lazy"
-              />
+              <img src="https://via.placeholder.com/200" alt="Smartwatch" />
             </div>
             <div class="product-info">
               <span class="cat-tag">Eletrónicos</span>
@@ -116,70 +92,92 @@
                 <span class="price-usd">$30.00</span>
               </div>
               <button class="btn-add">
-                <i class="bi bi-bag-plus me-1"></i>Encomendar
+                <i class="bi bi-bag-plus"></i> Encomendar
               </button>
             </div>
           </div>
 
           <div class="product-card">
             <div class="product-img">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Kit Chaves"
-                loading="lazy"
-              />
+              <img src="https://via.placeholder.com/200" alt="Kit Chaves" />
             </div>
             <div class="product-info">
               <span class="cat-tag">Ferramentas</span>
-              <h4>Kit Chaves Precisão (46 peças)</h4>
+              <h4>Kit Chaves Precisão</h4>
               <div class="price-box">
                 <span class="price-kz">13.800 Kz</span>
                 <span class="price-usd">$15.00</span>
               </div>
               <button class="btn-add">
-                <i class="bi bi-bag-plus me-1"></i>Encomendar
+                <i class="bi bi-bag-plus"></i> Encomendar
               </button>
             </div>
           </div>
 
           <div class="product-card">
             <div class="product-img">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Painel Solar"
-                loading="lazy"
-              />
+              <img src="https://via.placeholder.com/200" alt="Tenis" />
             </div>
             <div class="product-info">
-              <span class="cat-tag">Energia Solar</span>
-              <h4>Painel Solar Monocristalino 200W</h4>
-              <div class="price-box">
-                <span class="price-kz">92.000 Kz</span>
-                <span class="price-usd">$100.00</span>
-              </div>
-              <button class="btn-add">
-                <i class="bi bi-bag-plus me-1"></i>Encomendar
-              </button>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-img">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Fone"
-                loading="lazy"
-              />
-            </div>
-            <div class="product-info">
-              <span class="cat-tag">Eletrónicos</span>
-              <h4>Fone Bluetooth 5.3 ANC Pro</h4>
+              <span class="cat-tag">Moda</span>
+              <h4>Ténis Casual Unisexo Style</h4>
               <div class="price-box">
                 <span class="price-kz">18.400 Kz</span>
                 <span class="price-usd">$20.00</span>
               </div>
               <button class="btn-add">
-                <i class="bi bi-bag-plus me-1"></i>Encomendar
+                <i class="bi bi-bag-plus"></i> Encomendar
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://via.placeholder.com/200" alt="Fone Ouvido" />
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Eletrónicos</span>
+              <h4>Fones Ouvido Bluetooth TWS</h4>
+              <div class="price-box">
+                <span class="price-kz">11.040 Kz</span>
+                <span class="price-usd">$12.00</span>
+              </div>
+              <button class="btn-add">
+                <i class="bi bi-bag-plus"></i> Encomendar
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://via.placeholder.com/200" alt="Peça Auto" />
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Peças Auto</span>
+              <h4>Sensor Estacionamento (Kit)</h4>
+              <div class="price-box">
+                <span class="price-kz">22.080 Kz</span>
+                <span class="price-usd">$24.00</span>
+              </div>
+              <button class="btn-add">
+                <i class="bi bi-bag-plus"></i> Encomendar
+              </button>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-img">
+              <img src="https://via.placeholder.com/200" alt="Acessório Casa" />
+            </div>
+            <div class="product-info">
+              <span class="cat-tag">Casa</span>
+              <h4>Mini Processador Alimentos</h4>
+              <div class="price-box">
+                <span class="price-kz">9.200 Kz</span>
+                <span class="price-usd">$10.00</span>
+              </div>
+              <button class="btn-add">
+                <i class="bi bi-bag-plus"></i> Encomendar
               </button>
             </div>
           </div>
