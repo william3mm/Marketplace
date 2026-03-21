@@ -71,6 +71,9 @@ body {
   border-bottom: 1px solid var(--bg-gray);
   transition: 0.2s;
 }
+.products-section {
+  min-width: 0; /* ← ISTO. Permite que a coluna encolha dentro do grid */
+}
 
 .header-container {
   max-width: 1400px;
@@ -260,9 +263,7 @@ fundo */
     padding: 10px;
     gap: 15px;
   }
-  .sidebar {
-    display: none; /* Ou seu estilo de chips horizontais */
-  }
+
   .product-grid {
     /* Garante 2 colunas reais sem cortar */
     grid-template-columns: repeat(2, 1fr);
@@ -270,6 +271,48 @@ fundo */
     padding-bottom: 50px; /*
 Margem de segurança no fundo */
   }
+
+  .sidebar {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 5px;
+    position: static;
+    width: 100%;
+    overflow: hidden; /* ← ESTA LINHA. Clipa o scroll horizontal da ul */
+  }
+  .sidebar h3 {
+    display: none;
+  }
+  .sidebar ul {
+    display: flex !important;
+    flex-direction: row !important; /* Força linha */
+    overflow-x: auto !important; /* Habilita scroll horizontal */
+    gap: 8px;
+    padding: 5px 0 15px;
+    scrollbar-width: none; /* Firefox */
+    -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
+  }
+
+  .sidebar ul::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  .sidebar ul li {
+    list-style: none;
+    flex: 0 0 auto; /* Impede que o item encolha, forçando o scroll */
+  }
+
+  .sidebar ul li a {
+    background: var(--white);
+    padding: 8px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    font-size: 0.75rem;
+    white-space: nowrap; /* Não quebra texto */
+    display: block;
+    border-bottom: 1px solid var(--border);
+  }
+
   .product-img {
     /* No mobile, imagens 1:1 podem
 ser muito altas, vamos reduzir um pouco */
