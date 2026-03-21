@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-AO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrar ou Criar Conta | AngoChina</title>
+    <link rel="stylesheet" href="../assets/css/login.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <div class="auth-header">
+        <a href="index.html" class="logo">AngoChina</a>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-button active" onclick="switchTab(event, 'login')">
+          Entrar
+        </button>
+        <button class="tab-button" onclick="switchTab(event, 'cadastro')">
+          Criar Conta
+        </button>
+      </div>
+
+      <div id="login" class="tab-content active">
+        <form action="/login" method="POST">
+          <div class="form-group">
+            <label for="login-email">E-mail</label>
+            <input
+              type="email"
+              id="login-email"
+              name="email"
+              placeholder="O seu e-mail"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Senha</label>
+            <input
+              type="password"
+              id="login-password"
+              name="password"
+              placeholder="A sua senha"
+              required
+            />
+          </div>
+
+          <a href="#" class="forgot-password">Esqueceu a senha?</a>
+          <button type="submit" class="btn-submit">Entrar</button>
+        </form>
+      </div>
+
+      <div id="cadastro" class="tab-content">
+        <form action="/register" method="POST">
+          <div class="form-group">
+            <label for="cadastro-name">Nome Completo</label>
+            <input
+              type="text"
+              id="cadastro-name"
+              name="name"
+              placeholder="Como no seu BI"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="cadastro-email">E-mail</label>
+            <input
+              type="email"
+              id="cadastro-email"
+              name="email"
+              placeholder="O seu e-mail"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="cadastro-password">Senha</label>
+            <input
+              type="password"
+              id="cadastro-password"
+              name="password"
+              placeholder="Mínimo 8 caracteres"
+              required
+              minlength="8"
+            />
+          </div>
+          <small class="helper-text"
+            >Dados necessários para a fatura de importação.</small
+          >
+
+          <button type="submit" class="btn-submit">Criar Minha Conta</button>
+        </form>
+      </div>
+
+      <div class="auth-footer">
+        <div class="security-note">
+          <span>🔒 Pagamento em Kwanzas 100% Seguro</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function switchTab(event, tabId) {
+        const contents = document.querySelectorAll(".tab-content");
+        const buttons = document.querySelectorAll(".tab-button");
+
+        contents.forEach((c) => c.classList.remove("active"));
+        buttons.forEach((b) => b.classList.remove("active"));
+
+        document.getElementById(tabId).classList.add("active");
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </body>
+</html>
