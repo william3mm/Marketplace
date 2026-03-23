@@ -30,6 +30,9 @@ body {
   color: var(--text);
 }
 
+.main-header {
+  padding: 0; /* ← sem padding aqui */
+}
 /* ── HEADER ── */
 .main-header {
   background: var(--primary);
@@ -41,20 +44,31 @@ body {
 }
 
 .header-container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
+/* Seta — visível sempre, o JS não toca mais nela */
 .btn-back {
   color: white;
   font-size: 1.3rem;
   text-decoration: none;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background 0.18s;
 }
 
+.btn-back:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Título do header ocupa o espaço do meio */
 .header-title {
   flex: 1;
   color: white;
@@ -65,12 +79,14 @@ body {
   text-overflow: ellipsis;
 }
 
+/* Logo desktop — substitui o título no desktop */
 .logo {
   font-size: 1.4rem;
   font-weight: 900;
   color: white;
   text-decoration: none;
   white-space: nowrap;
+  flex: 1; /* ocupa o mesmo espaço que o header-title */
 }
 
 .cart-icon {
@@ -78,6 +94,7 @@ body {
   font-size: 1.5rem;
   text-decoration: none;
   position: relative;
+  flex-shrink: 0;
 }
 
 .cart-icon .badge {
@@ -97,7 +114,7 @@ body {
 
 /* ── PAGE LAYOUT ── */
 .page {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 20px 4% 100px;
 }
@@ -134,7 +151,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Badge de desconto */
 .discount-badge {
   position: absolute;
   top: 14px;
@@ -145,17 +161,14 @@ body {
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 30px;
-  letter-spacing: 0.3px;
 }
 
-/* Miniaturas */
 .thumbnails {
   display: flex;
   gap: 8px;
   padding: 12px;
   overflow-x: auto;
   scrollbar-width: none;
-  background: var(--white);
 }
 .thumbnails::-webkit-scrollbar {
   display: none;
@@ -213,7 +226,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* Avaliação */
 .rating-row {
   display: flex;
   align-items: center;
@@ -226,13 +238,10 @@ body {
   color: var(--accent);
   font-size: 0.85rem;
 }
-
 .rating-num {
   font-size: 0.82rem;
   font-weight: 700;
-  color: var(--text);
 }
-
 .reviews-count {
   font-size: 0.78rem;
   color: var(--text-light);
@@ -246,7 +255,6 @@ body {
   border-radius: 20px;
 }
 
-/* Preço */
 .price-section {
   background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
   border-radius: 10px;
@@ -267,19 +275,15 @@ body {
   color: var(--primary);
   line-height: 1;
 }
-
 .price-usd {
   font-size: 0.9rem;
   color: var(--text-light);
-  font-weight: 500;
 }
-
 .price-original {
   font-size: 0.82rem;
   color: #999;
   text-decoration: line-through;
 }
-
 .price-note {
   font-size: 0.72rem;
   color: var(--text-light);
@@ -329,7 +333,6 @@ body {
   color: var(--primary);
 }
 
-/* Cores */
 .color-options {
   display: flex;
   gap: 10px;
@@ -344,11 +347,9 @@ body {
   border: 3px solid transparent;
   cursor: pointer;
   transition: all 0.18s;
-  position: relative;
 }
 
 .color-btn.active {
-  border-color: var(--primary);
   box-shadow:
     0 0 0 2px white,
     0 0 0 4px var(--primary);
@@ -358,7 +359,6 @@ body {
 .qty-row {
   display: flex;
   align-items: center;
-  gap: 0;
 }
 
 .qty-label {
@@ -383,10 +383,10 @@ body {
   user-select: none;
 }
 
-.qty-btn:first-child {
+.qty-btn:first-of-type {
   border-radius: 8px 0 0 8px;
 }
-.qty-btn:last-child {
+.qty-btn:last-of-type {
   border-radius: 0 8px 8px 0;
 }
 .qty-btn:hover {
@@ -404,11 +404,31 @@ body {
   justify-content: center;
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--text);
-  background: var(--white);
 }
 
-/* ── ENTREGAS ── */
+/* Total */
+.total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.total-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.total-value {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+/* ── ENTREGA ── */
 .shipping-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -440,7 +460,6 @@ body {
   flex-shrink: 0;
   margin-top: 1px;
 }
-
 .shipping-text strong {
   display: block;
   font-size: 0.85rem;
@@ -508,7 +527,6 @@ body {
   color: var(--text-light);
   margin-bottom: 3px;
 }
-
 .spec-val {
   font-size: 0.82rem;
   font-weight: 700;
@@ -520,7 +538,6 @@ body {
   line-height: 1.7;
   color: #4b5563;
 }
-
 .desc-text p {
   margin-bottom: 10px;
 }
@@ -528,26 +545,7 @@ body {
   margin-bottom: 0;
 }
 
-/* ── BARRA INFERIOR FIXA ── */
-.bottom-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 300;
-  background: var(--white);
-  border-top: 1px solid var(--border);
-  padding: 12px 4%;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.bottom-bar-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  gap: 10px;
-}
-
+/* ── BOTÕES ── */
 .btn-cart {
   flex: 1;
   padding: 14px;
@@ -591,7 +589,66 @@ body {
   background: var(--accent-dark);
 }
 
-/* ── DESKTOP ── */
+/* ── BARRA INFERIOR FIXA (mobile) ── */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 12px 4%;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-bar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--primary);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 400;
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+
+/* MOBILE (<=767px): barra inferior + sem botões desktop */
+@media (max-width: 767px) {
+  .desktop-actions {
+    display: none;
+  }
+
+  .page {
+    padding: 14px 3% 100px;
+  }
+}
+
+/* DESKTOP (>=768px): layout 2 colunas + botões inline */
 @media (min-width: 768px) {
   .page {
     display: grid;
@@ -608,11 +665,11 @@ body {
     grid-column: 2;
   }
 
+  /* Barra inferior escondida — botões ficam no info-card */
   .bottom-bar {
     display: none;
   }
 
-  /* Botões inline no desktop */
   .desktop-actions {
     display: flex;
     gap: 10px;
@@ -625,37 +682,19 @@ body {
     font-size: 0.92rem;
   }
 
-  .main-photo {
-    aspect-ratio: 1 / 1;
-  }
-}
-
-@media (max-width: 767px) {
-  .desktop-actions {
+  /* Header desktop: seta vira link "← Loja" com texto */
+  .header-title {
     display: none;
+  } /* esconde "Detalhes do Produto" */
+  #desktopLogo {
+    display: block !important;
+  } /* mostra AngoChina */
+}
+
+/* DESKTOP GRANDE (>=1024px) */
+@media (min-width: 1024px) {
+  .page {
+    grid-template-columns: 1fr 460px;
+    padding: 28px 4% 40px;
   }
-}
-
-/* Toast de confirmação */
-.toast {
-  position: fixed;
-  bottom: 90px;
-  left: 50%;
-  transform: translateX(-50%) translateY(20px);
-  background: #1a237e;
-  color: white;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 400;
-  white-space: nowrap;
-}
-
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
 }

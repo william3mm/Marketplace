@@ -68,9 +68,6 @@ function filtrarCategoria(categoria) {
   renderProdutos(filtrados);
 }
 
-// ============================================================
-// RENDERIZAÇÃO DA PÁGINA DO PRODUTO (produto.html)
-// ============================================================
 function renderPaginaProduto() {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"));
@@ -174,7 +171,12 @@ function renderVariantes(p) {
       <button class="qty-btn" onclick="changeQty(-1)">−</button>
       <div class="qty-display" id="qtyDisplay">1</div>
       <button class="qty-btn" onclick="changeQty(1)">+</button>
-    </div>`;
+    </div>
+    <div class="total-row">
+    <span class="total-label">Total</span>
+    <span class="total-value" id="totalValue">${formatKz(calcPrecoKz(p.preco_usd, p.desconto))} Kz</span>
+  </div>
+    `;
 
   card.innerHTML = html;
 }
@@ -203,9 +205,23 @@ function renderSpecs(specs) {
 // ============================================================
 function changeQty(delta) {
   const display = document.getElementById("qtyDisplay");
+  const totalEl = document.getElementById("totalValue");
   if (!display) return;
+
   let qty = parseInt(display.textContent);
-  display.textContent = Math.max(1, Math.min(99, qty + delta));
+  qty = Math.max(1, Math.min(99, qty + delta));
+  display.textContent = qty;
+
+  if (totalEl) {
+    const precoUnitario = document
+      .querySelector(".price-kz")
+      .textContent.replace(/\./g, "") // remove pontos: 27.600 → 27600
+      .replace(/\s/g, "") // ← remove espaços: 22 080 → 22080
+      .replace(" Kz", "")
+      .replace("Kz", ""); // garante que remove o Kz com ou sem espaço
+
+    totalEl.textContent = formatKz(parseInt(precoUnitario) * qty) + " Kz";
+  }
 }
 
 function selectVariant(btn) {
