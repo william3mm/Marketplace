@@ -31,9 +31,9 @@ body {
 }
 
 .main-header {
-  padding: 0; /* ← sem padding aqui */
+  padding: 0;
 }
-/* ── HEADER ── */
+
 .main-header {
   background: var(--primary);
   padding: 10px 4%;
