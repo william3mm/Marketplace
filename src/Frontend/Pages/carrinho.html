@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/carrinho.css" />
+  </head>
+  <body>
+    <main class="cart-layout">
+      <section class="cart-items">
+        <h2>Meu Carrinho (3 itens)</h2>
+
+        <div class="cart-card">
+          <div
+            class="cart-item-main"
+            onclick="window.location.href = 'produto.html'"
+          >
+            <img src="https://via.placeholder.com/100" alt="Produto" />
+            <div class="item-details">
+              <h4>Smartwatch Series 9 Ultra</h4>
+              <span class="item-price-unit">27.600 Kz</span>
+            </div>
+          </div>
+
+          <div class="item-actions">
+            <div class="quantity-control">
+              <button class="btn-qty" onclick="event.stopPropagation()">
+                -
+              </button>
+              <span class="qty-number">1</span>
+              <button class="btn-qty" onclick="event.stopPropagation()">
+                +
+              </button>
+            </div>
+            <button class="btn-remove" title="Remover item">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="cart-summary">
+        <h3>Resumo do Pedido</h3>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span>82.800 Kz</span>
+        </div>
+        <div class="summary-row">
+          <span>Taxa de Entrega</span>
+          <span class="free-shipping">Grátis</span>
+        </div>
+        <hr />
+        <div class="summary-row total">
+          <span>Total</span>
+          <strong>82.800 Kz</strong>
+        </div>
+        <button class="btn-checkout">Finalizar Encomenda</button>
+        <a href="index.html" class="btn-continue">Continuar Comprando</a>
+      </aside>
+    </main>
+  </body>
+</html>

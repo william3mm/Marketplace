@@ -81,7 +81,7 @@ function renderPaginaProduto() {
       </div>`;
     return;
   }
-
+  window.produtoActual = p;
   const precoKz = calcPrecoKz(p.preco_usd, p.desconto);
   const precoOriginalKz = p.preco_usd * CAMBIO;
 
@@ -259,10 +259,9 @@ function changePhoto(thumb, src) {
 let cartCount = 0;
 
 function addToCart() {
-  cartCount++;
   const qty = parseInt(document.getElementById("qtyDisplay")?.textContent || 1);
-  document.getElementById("cartCount").textContent = cartCount;
-  showToast(`✓ ${qty}x produto adicionado ao carrinho`);
+  const variantes = window.getVariantesSelecionadas();
+  adicionarAoCarrinho(window.produtoActual, qty, variantes);
 }
 
 function showToast(msg) {
