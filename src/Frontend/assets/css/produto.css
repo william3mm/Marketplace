@@ -1,0 +1,700 @@
+:root {
+  --primary: #1a237e;
+  --primary-dark: #121858;
+  --accent: #ff9800;
+  --accent-dark: #e65100;
+  --bg: #f0f2f5;
+  --white: #ffffff;
+  --border: #e0e0e0;
+  --text: #1a1a2e;
+  --text-light: #6b7280;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.07);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.11);
+  --radius: 14px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.main-header {
+  padding: 0; /* ← sem padding aqui */
+}
+/* ── HEADER ── */
+.main-header {
+  background: var(--primary);
+  padding: 10px 4%;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Seta — visível sempre, o JS não toca mais nela */
+.btn-back {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: background 0.18s;
+}
+
+.btn-back:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Título do header ocupa o espaço do meio */
+.header-title {
+  flex: 1;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Logo desktop — substitui o título no desktop */
+.logo {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+  flex: 1; /* ocupa o mesmo espaço que o header-title */
+}
+
+.cart-icon {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.cart-icon .badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: var(--accent);
+  color: white;
+  font-size: 0.58rem;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── PAGE LAYOUT ── */
+.page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 4% 100px;
+}
+
+/* ── GALERIA ── */
+.gallery {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.main-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.main-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+  transition: transform 0.4s ease;
+}
+
+.main-photo:hover img {
+  transform: scale(1.05);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #e53935;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 30px;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.thumb {
+  flex: 0 0 64px;
+  height: 64px;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  background: #f8f9fa;
+}
+
+.thumb.active {
+  border-color: var(--primary);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}
+
+/* ── INFO CARD ── */
+.info-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.cat-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+  background: rgba(255, 152, 0, 0.1);
+  border-radius: 30px;
+  padding: 3px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.stars {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+.rating-num {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+.reviews-count {
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+.sold-tag {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  background: var(--bg);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.price-section {
+  background: linear-gradient(135deg, #f0f4ff 0%, #e8edff 100%);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+
+.price-main {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.price-kz {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+.price-usd {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+.price-original {
+  font-size: 0.82rem;
+  color: #999;
+  text-decoration: line-through;
+}
+.price-note {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  margin-top: 6px;
+}
+
+/* ── VARIANTES ── */
+.variants-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.variant-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.variant-btn {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.variant-btn.active {
+  border-color: var(--primary);
+  background: #eef0ff;
+  color: var(--primary);
+}
+
+.color-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.color-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.color-btn.active {
+  box-shadow:
+    0 0 0 2px white,
+    0 0 0 4px var(--primary);
+}
+
+/* Quantidade */
+.qty-row {
+  display: flex;
+  align-items: center;
+}
+
+.qty-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-right: 14px;
+}
+
+.qty-btn {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  font-size: 1.1rem;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  user-select: none;
+}
+
+.qty-btn:first-of-type {
+  border-radius: 8px 0 0 8px;
+}
+.qty-btn:last-of-type {
+  border-radius: 0 8px 8px 0;
+}
+.qty-btn:hover {
+  background: var(--bg);
+}
+
+.qty-display {
+  width: 44px;
+  height: 36px;
+  border: 1.5px solid var(--border);
+  border-left: none;
+  border-right: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* Total */
+.total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.total-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.total-value {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+/* ── ENTREGA ── */
+.shipping-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.shipping-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--bg);
+}
+
+.shipping-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.shipping-row:first-child {
+  padding-top: 0;
+}
+
+.shipping-icon {
+  font-size: 1.1rem;
+  color: var(--primary);
+  width: 22px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.shipping-text strong {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.shipping-text span {
+  font-size: 0.77rem;
+  color: var(--text-light);
+}
+
+/* ── DESCRIÇÃO ── */
+.desc-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.desc-title {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.desc-title::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: var(--bg);
+  border-radius: 2px;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.spec-item {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.spec-item:nth-child(even) {
+  border-right: none;
+}
+.spec-item:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+
+.spec-key {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-light);
+  margin-bottom: 3px;
+}
+.spec-val {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.desc-text {
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: #4b5563;
+}
+.desc-text p {
+  margin-bottom: 10px;
+}
+.desc-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── BOTÕES ── */
+.btn-cart {
+  flex: 1;
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid var(--primary);
+  background: white;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: all 0.2s;
+}
+
+.btn-cart:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-buy {
+  flex: 1.4;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: background 0.2s;
+}
+
+.btn-buy:hover {
+  background: var(--accent-dark);
+}
+
+/* ── BARRA INFERIOR FIXA (mobile) ── */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 300;
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  padding: 12px 4%;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-bar-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--primary);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 400;
+  white-space: nowrap;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+
+/* MOBILE (<=767px): barra inferior + sem botões desktop */
+@media (max-width: 767px) {
+  .desktop-actions {
+    display: none;
+  }
+
+  .page {
+    padding: 14px 3% 100px;
+  }
+}
+
+/* DESKTOP (>=768px): layout 2 colunas + botões inline */
+@media (min-width: 768px) {
+  .page {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 24px;
+    align-items: start;
+    padding-bottom: 40px;
+  }
+
+  .gallery-col {
+    grid-column: 1;
+  }
+  .info-col {
+    grid-column: 2;
+  }
+
+  /* Barra inferior escondida — botões ficam no info-card */
+  .bottom-bar {
+    display: none;
+  }
+
+  .desktop-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .btn-cart,
+  .btn-buy {
+    padding: 15px;
+    font-size: 0.92rem;
+  }
+
+  /* Header desktop: seta vira link "← Loja" com texto */
+  .header-title {
+    display: none;
+  } /* esconde "Detalhes do Produto" */
+  #desktopLogo {
+    display: block !important;
+  } /* mostra AngoChina */
+}
+
+/* DESKTOP GRANDE (>=1024px) */
+@media (min-width: 1024px) {
+  .page {
+    grid-template-columns: 1fr 460px;
+    padding: 28px 4% 40px;
+  }
+}

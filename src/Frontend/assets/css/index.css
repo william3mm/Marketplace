@@ -90,14 +90,14 @@ body {
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
+  margin-right: 12px; /* ← espaço extra à direita do logo */
 }
 
 .search-bar {
-  flex: 1;
+  flex: 1; /* ← cresce e ocupa todo o espaço do meio */
   display: flex;
   min-width: 0;
 }
-
 .search-bar input {
   flex: 1;
   min-width: 0;
@@ -253,25 +253,28 @@ fundo */
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-} /*
-============================================================ RESPONSIVIDADE
-(Ajustes Críticos para Mobile)
-============================================================ */
+}
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+
+/* TABLET E MOBILE (<=992px) */
 @media (max-width: 992px) {
+  /* Layout: 1 coluna */
   .store-layout {
     grid-template-columns: 1fr;
     padding: 10px;
     gap: 15px;
   }
 
+  /* Grid: 2 colunas */
   .product-grid {
-    /* Garante 2 colunas reais sem cortar */
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    padding-bottom: 50px; /*
-Margem de segurança no fundo */
+    padding-bottom: 50px;
   }
 
+  /* Sidebar → chips horizontais */
   .sidebar {
     background: transparent;
     box-shadow: none;
@@ -279,27 +282,30 @@ Margem de segurança no fundo */
     margin-bottom: 5px;
     position: static;
     width: 100%;
-    overflow: hidden; /* ← ESTA LINHA. Clipa o scroll horizontal da ul */
+    overflow: hidden;
   }
+
   .sidebar h3 {
     display: none;
   }
+
   .sidebar ul {
     display: flex !important;
-    flex-direction: row !important; /* Força linha */
-    overflow-x: auto !important; /* Habilita scroll horizontal */
+    flex-direction: row !important;
+    overflow-x: auto !important;
     gap: 8px;
     padding: 5px 0 15px;
-    scrollbar-width: none; /* Firefox */
-    -webkit-overflow-scrolling: touch; /* Scroll suave no iOS */
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   .sidebar ul::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
   }
+
   .sidebar ul li {
     list-style: none;
-    flex: 0 0 auto; /* Impede que o item encolha, forçando o scroll */
+    flex: 0 0 auto;
   }
 
   .sidebar ul li a {
@@ -308,34 +314,88 @@ Margem de segurança no fundo */
     border-radius: 50px;
     border: 1px solid var(--border);
     font-size: 0.75rem;
-    white-space: nowrap; /* Não quebra texto */
+    white-space: nowrap;
     display: block;
     border-bottom: 1px solid var(--border);
   }
 
+  /* Cards */
   .product-img {
-    /* No mobile, imagens 1:1 podem
-ser muito altas, vamos reduzir um pouco */
     aspect-ratio: 1.2 / 1;
   }
+
   .product-info {
     padding: 8px;
   }
+
   .product-info h4 {
     font-size: 0.8rem;
     min-height: 2.6em;
   }
+
   .price-kz {
     font-size: 0.95rem;
   }
+
   .btn-add {
     padding: 10px 5px;
     font-size: 0.75rem;
   }
-} /* Ajuste extra para telas muito pequenas (iPhone
-SE, etc) */
+}
+
+/* MOBILE (<=768px): header em 2 linhas + search a 100% */
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  /* Linha 1: Logo (esquerda) + ícones (direita) */
+  .logo {
+    order: 1;
+    flex: 1; /* empurra os ícones para a ponta direita */
+    font-size: 1.2rem;
+    margin-right: 0;
+  }
+
+  .nav-actions {
+    order: 2;
+    margin-left: 0;
+    gap: 14px;
+  }
+
+  /* Câmbio escondido — sem espaço no mobile */
+  .exchange-tag {
+    display: none !important;
+  }
+
+  /* Linha 2: Search a largura total */
+  .search-bar {
+    order: 3;
+    width: 100%;
+    flex: none;
+  }
+
+  .search-bar input {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* TELEMÓVEL MUITO PEQUENO (<=360px) */
 @media (max-width: 360px) {
   .product-grid {
-    grid-template-columns: 1fr; /* 1 coluna apenas se for muito estreito */
+    grid-template-columns: 1fr;
+  }
+}
+
+/* DESKTOP (>=992px) */
+@media (min-width: 992px) {
+  .store-layout {
+    grid-template-columns: 260px 1fr;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
 }
