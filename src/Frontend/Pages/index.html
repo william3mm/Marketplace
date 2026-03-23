@@ -48,26 +48,37 @@
       <aside class="sidebar">
         <h3>Categorias</h3>
         <nav>
+          <!-- data-cat tem de corresponder exactamente à categoria nos dados -->
           <ul class="list-unstyled category-list">
             <li>
-              <a href="#" class="active"
+              <a href="#" class="active" data-cat="Todos"
                 ><i class="bi bi-grid-fill me-2"></i>Tudo</a
               >
             </li>
             <li>
-              <a href="#"><i class="bi bi-cpu me-2"></i>Eletrónicos</a>
+              <a href="#" data-cat="Eletrónicos"
+                ><i class="bi bi-cpu me-2"></i>Eletrónicos</a
+              >
             </li>
             <li>
-              <a href="#"><i class="bi bi-gender-female me-2"></i>Moda</a>
+              <a href="#" data-cat="Moda"
+                ><i class="bi bi-gender-female me-2"></i>Moda</a
+              >
             </li>
             <li>
-              <a href="#"><i class="bi bi-tools me-2"></i>Ferramentas</a>
+              <a href="#" data-cat="Ferramentas"
+                ><i class="bi bi-tools me-2"></i>Ferramentas</a
+              >
             </li>
             <li>
-              <a href="#"><i class="bi bi-car-front me-2"></i>Peças Auto</a>
+              <a href="#" data-cat="Peças Auto"
+                ><i class="bi bi-car-front me-2"></i>Peças Auto</a
+              >
             </li>
             <li>
-              <a href="#"><i class="bi bi-house-door me-2"></i>Casa</a>
+              <a href="#" data-cat="Casa"
+                ><i class="bi bi-house-door me-2"></i>Casa</a
+              >
             </li>
           </ul>
         </nav>
@@ -79,109 +90,8 @@
           <p>Preços finais em Kwanzas (Taxas incluídas)</p>
         </div>
 
-        <div class="product-grid">
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://via.placeholder.com/200" alt="Smartwatch" />
-            </div>
-            <div class="product-info">
-              <span class="cat-tag">Eletrónicos</span>
-              <h4>Smartwatch Series 9 Ultra</h4>
-              <div class="price-box">
-                <span class="price-kz">27.600 Kz</span>
-                <span class="price-usd">$30.00</span>
-              </div>
-              <button class="btn-add">
-                <i class="bi bi-bag-plus"></i> Encomendar
-              </button>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://via.placeholder.com/200" alt="Kit Chaves" />
-            </div>
-            <div class="product-info">
-              <span class="cat-tag">Ferramentas</span>
-              <h4>Kit Chaves Precisão</h4>
-              <div class="price-box">
-                <span class="price-kz">13.800 Kz</span>
-                <span class="price-usd">$15.00</span>
-              </div>
-              <button class="btn-add">
-                <i class="bi bi-bag-plus"></i> Encomendar
-              </button>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://via.placeholder.com/200" alt="Tenis" />
-            </div>
-            <div class="product-info">
-              <span class="cat-tag">Moda</span>
-              <h4>Ténis Casual Unisexo Style</h4>
-              <div class="price-box">
-                <span class="price-kz">18.400 Kz</span>
-                <span class="price-usd">$20.00</span>
-              </div>
-              <button class="btn-add">
-                <i class="bi bi-bag-plus"></i> Encomendar
-              </button>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://via.placeholder.com/200" alt="Fone Ouvido" />
-            </div>
-            <div class="product-info">
-              <span class="cat-tag">Eletrónicos</span>
-              <h4>Fones Ouvido Bluetooth TWS</h4>
-              <div class="price-box">
-                <span class="price-kz">11.040 Kz</span>
-                <span class="price-usd">$12.00</span>
-              </div>
-              <button class="btn-add">
-                <i class="bi bi-bag-plus"></i> Encomendar
-              </button>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://via.placeholder.com/200" alt="Peça Auto" />
-            </div>
-            <div class="product-info">
-              <span class="cat-tag">Peças Auto</span>
-              <h4>Sensor Estacionamento (Kit)</h4>
-              <div class="price-box">
-                <span class="price-kz">22.080 Kz</span>
-                <span class="price-usd">$24.00</span>
-              </div>
-              <button class="btn-add">
-                <i class="bi bi-bag-plus"></i> Encomendar
-              </button>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-img">
-              <img src="https://via.placeholder.com/200" alt="Acessório Casa" />
-            </div>
-            <div class="product-info">
-              <span class="cat-tag">Casa</span>
-              <h4>Mini Processador Alimentos</h4>
-              <div class="price-box">
-                <span class="price-kz">9.200 Kz</span>
-                <span class="price-usd">$10.00</span>
-              </div>
-              <button class="btn-add">
-                <i class="bi bi-bag-plus"></i> Encomendar
-              </button>
-            </div>
-          </div>
-        </div>
+        <!-- VAZIO — o produtos.js preenche automaticamente -->
+        <div class="product-grid"></div>
       </section>
     </main>
 
@@ -233,21 +143,18 @@
       </div>
     </footer>
 
-    <script>
-      // Chips: toggle active
-      document.querySelectorAll(".category-list li a").forEach((link) => {
-        link.addEventListener("click", (e) => {
-          e.preventDefault();
-          document
-            .querySelectorAll(".category-list li a")
-            .forEach((l) => l.classList.remove("active"));
-          link.classList.add("active");
-        });
-      });
+    <script type="module" src="../../Config/produtos.js"></script>
 
-      // Mostrar câmbio só no desktop
-      const tag = document.getElementById("exchangeTag");
-      if (window.innerWidth >= 1024) tag.style.display = "block";
+    <!-- 2º a lógica de render (que importa os dados) -->
+    <script
+      type="module"
+      src="../../utils/Renderizacao/Produtos/index.js"
+    ></script>
+
+    <script>
+      if (window.innerWidth >= 1024) {
+        document.getElementById("exchangeTag").style.display = "block";
+      }
     </script>
   </body>
 </html>
