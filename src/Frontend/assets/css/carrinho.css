@@ -1,8 +1,21 @@
 /* ============================================================
    CARRINHO — Overlay / Drawer
    ============================================================ */
+:root {
+  --primary: #1a237e;
+  --primary-dark: #121858;
+  --accent: #ff9800;
+  --accent-dark: #e65100;
+  --bg: #f0f2f5;
+  --white: #ffffff;
+  --border: #e0e0e0;
+  --text: #1a1a2e;
+  --text-light: #6b7280;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.07);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.11);
+  --radius: 14px;
+}
 
-/* Fundo escuro por trás do drawer */
 .cart-overlay {
   position: fixed;
   inset: 0;
@@ -18,7 +31,6 @@
   pointer-events: all;
 }
 
-/* Drawer lateral (desktop) / bottom sheet (mobile) */
 .cart-drawer {
   position: fixed;
   z-index: 501;
@@ -28,7 +40,6 @@
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Desktop: drawer da direita */
 @media (min-width: 768px) {
   .cart-drawer {
     top: 0;
@@ -45,7 +56,6 @@
   }
 }
 
-/* Mobile: bottom sheet */
 @media (max-width: 767px) {
   .cart-drawer {
     bottom: 0;
@@ -63,7 +73,6 @@
   }
 }
 
-/* ── HEADER DO DRAWER ── */
 .cart-header {
   background: var(--primary, #1a237e);
   color: white;
