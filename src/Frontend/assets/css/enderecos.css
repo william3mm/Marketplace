@@ -1,0 +1,314 @@
+/* ============================================================
+   ESTILOS COMPLEMENTARES: PERFIL (ENDEREÇOS E PEDIDOS)
+   ============================================================ */
+
+:root {
+  --primary: #1a237e;
+  --primary-dark: #121858;
+  --accent: #ff9800;
+  --bg-gray: #f5f5f5;
+  --white: #ffffff;
+  --border: #e0e0e0;
+  --text: #333;
+  --text-light: #757575;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   CORREÇÃO GLOBAL DE LAYOUT (FLEXBOX PARA STICKY FOOTER)
+   ============================================================ */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* O body ocupa pelo menos 100% da altura do ecrã */
+  display: flex;
+  flex-direction: column; /* Organiza os elementos verticalmente */
+  background-color: var(--bg-gray, #f5f5f5);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.content-card {
+  flex: 1; /* Isto é a magia: ocupa todo o espaço vertical disponível */
+  margin: 40px auto; /* Centraliza horizontalmente e dá margem no topo/base */
+  width: 90%;
+  max-width: 1200px; /* Evita que estique demasiado em ecrãs grandes */
+  box-sizing: border-box;
+
+  /* Mantendo os seus estilos actuais para o cartão em si */
+  background: var(--white, #ffffff);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.05));
+}
+
+/* --- CABEÇALHO E ACÇÕES COMUNS --- */
+.header-with-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 15px;
+}
+
+.count-tag {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  background: #eee;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* --- GESTÃO DE ENDEREÇOS --- */
+.btn-add-address {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-add-address:hover {
+  background: #e68a00;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.address-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.address-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.address-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+}
+
+.address-card.active {
+  border: 2px solid var(--primary);
+  background: #f8f9ff;
+}
+
+.address-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.tag-default {
+  background: var(--primary);
+  color: white;
+  font-size: 0.65rem;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+
+.address-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.address-actions button {
+  background: #f5f5f5;
+  border: none;
+  color: var(--text-light);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.address-actions button:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.address-actions button.delete:hover {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.address-body strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+}
+
+.address-body p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.phone-info {
+  margin-top: 12px !important;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-weight: 600;
+  color: var(--text) !important;
+}
+
+/* --- LISTAGEM DE PEDIDOS (NOVO) --- */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.order-item-card {
+  display: grid;
+  grid-template-columns: 100px 1fr 130px 110px 120px;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--white);
+  transition: 0.2s;
+}
+
+.order-item-card:hover {
+  border-color: var(--primary);
+}
+
+.order-main-info .order-id {
+  font-weight: bold;
+  color: var(--primary);
+  display: block;
+}
+
+.order-main-info .order-date {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.order-products-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.order-products-preview img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.order-products-preview p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Badges de Status */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status-badge.processing {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+.status-badge.delivered {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.btn-outline-sm {
+  background: transparent;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-outline-sm:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ============================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ============================================================ */
+
+/* TABLETS */
+@media (max-width: 992px) {
+  .order-products-preview {
+    grid-column: span 2;
+    padding: 10px 0;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}
+
+/* SMARTPHONES */
+@media (max-width: 600px) {
+  .header-with-action {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-add-address {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .order-item-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .order-products-preview {
+    flex-direction: column;
+    grid-column: span 1;
+  }
+
+  .address-grid {
+    grid-template-columns: 1fr;
+  }
+}

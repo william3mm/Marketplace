@@ -1,6 +1,20 @@
 /* ============================================================
    AngoChina — footer.css  (Versão melhorada)
    ============================================================ */
+:root {
+  --primary: #1a237e;
+  --primary-dark: #121858;
+  --accent: #ff9800;
+  --accent-dark: #e65100;
+  --bg: #f0f2f5;
+  --white: #ffffff;
+  --border: #e0e0e0;
+  --text: #1a1a2e;
+  --text-light: #6b7280;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.07);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.11);
+  --radius: 14px;
+}
 
 .main-footer {
   background: linear-gradient(
@@ -11,9 +25,11 @@
   );
   color: rgba(255, 255, 255, 0.82);
   padding: 56px 5% 0;
-  margin-top: 50px;
+  margin-top: auto;
+  width: 100%;
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 /* Detalhe decorativo subtil */
@@ -110,6 +126,7 @@
 .whatsapp-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center; /* Centraliza o conteúdo se ele esticar */
   gap: 8px;
   background: #25d366;
   color: #fff !important;
@@ -123,6 +140,11 @@
     background 0.2s,
     transform 0.15s;
   opacity: 1 !important;
+
+  /* CORREÇÕES DE ADAPTAÇÃO */
+  max-width: 100%; /* Nunca sai do limite da coluna */
+  box-sizing: border-box; /* Padding não aumenta a largura total */
+  width: auto; /* No desktop mantém o tamanho do texto */
 }
 
 .whatsapp-link:hover {
@@ -185,6 +207,8 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer-bottom p {
@@ -243,8 +267,18 @@
   }
 
   .whatsapp-link {
+    display: flex;
     width: 100%;
+    box-sizing: border-box;
     justify-content: center;
+    padding: 12px 18px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .footer-col {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .payment-methods {
